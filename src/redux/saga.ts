@@ -31,9 +31,11 @@ function* allUsers(action: any): Generator<any> {
 
 const createUserAPI = (data: IUsers): Promise<IUser> => {
   return new Promise((resolve, reject) => {
-    Axios.post(`http://localhost:4000/api/v1`, data).then((response: any) => {
-      resolve(response);
-    });
+    Axios.post(`http://localhost:4000/api/v1`, data)
+      .then((response: any) => {
+        resolve(response);
+      })
+      .catch((error) => console.log(error.response));
   });
 };
 
